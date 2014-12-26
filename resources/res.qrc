@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+  <file alias="artist">images/artist.png</file>
+  <file alias="album">images/album.png</file>
+  <file alias="track">images/track.png</file>
+</qresource>
+</RCC>
