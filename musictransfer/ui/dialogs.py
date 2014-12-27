@@ -44,5 +44,5 @@ class TransferProgressDialog(QProgressDialog):
     self.setMaximum(0)
     
   def setCurrentTrack(self, trackPath):
-    filename = path.split(trackPath)[1]
-    self.setLabelText(self.tr("Copying {} ...".format(filename)))
+    filename = path.basename(trackPath)
+    self.setLabelText(u"Copying {} ...".format(filename))

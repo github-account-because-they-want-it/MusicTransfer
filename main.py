@@ -71,8 +71,6 @@ class MusicTransfer(QMainWindow):
     
   def _handleSelectedTrackChanged(self, selectedPath):
     self._handleStopTrack()
-    self._music_menu.action_play_track.setEnabled(True)
-    self._music_menu.action_stop_track.setEnabled(False)
     self._selected_track = selectedPath
     
   def _handleTrackDeselected(self):

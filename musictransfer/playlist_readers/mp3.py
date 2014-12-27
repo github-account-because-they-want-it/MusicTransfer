@@ -4,6 +4,7 @@ Created on Dec 23, 2014
 '''
 
 import os.path as path
+import codecs
 from .base import BasePlaylistReader
 
 class M3UPlaylistReader(BasePlaylistReader):
@@ -19,7 +20,7 @@ class M3UPlaylistReader(BasePlaylistReader):
     return playlist_extension == ".m3u" or playlist_extension == ".m3u8" # maybe also m3u8
   
   def __iter__(self):
-    self._file_reader = open(self._playlist_file)
+    self._file_reader = codecs.open(self._playlist_file, mode="r", encoding="utf-8")
     return self
   
   def next(self):

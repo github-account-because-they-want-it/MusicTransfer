@@ -3,7 +3,7 @@ Created on Dec 24, 2014
 @author: Mohammed Hamdy
 '''
 
-from shutil import copyfile
+from shutil import copy
 import os, sys
 from os import path
 from PySide.QtGui import QTreeView, QApplication
@@ -53,9 +53,9 @@ class MusicTreeView(QTreeView):
           if not song_item.isChecked(): continue
           progress_dialog.setCurrentTrack(song_item.track_path)
           QApplication.processEvents() # update progress dialog message
-          output_dir = path.join(outputDir, artist_item.data(), album_item.data()) #dir/Breaking Benjamin/Dear Agony/
+          output_dir = path.join(outputDir, artist_item.data().strip(), album_item.data().strip()) #dir/Breaking Benjamin/Dear Agony/
           if not path.exists(output_dir):
             os.makedirs(output_dir)
-          if not path.exists(path.join(output_dir, path.split(song_item.track_path)[1])):
-            copyfile(song_item.track_path, outputDir)
+          if not path.exists(path.join(output_dir, path.basename(song_item.track_path))):
+            copy(song_item.track_path, output_dir)
     progress_dialog.hide()
